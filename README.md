@@ -1,5 +1,8 @@
 # software-py-tools
 Useful code snippets to get rid of toil with automation.
+* `delete_entities.py` - wipe entities and entity types from any Apps API account.
+* `import_entities.py` - imports beacon entities into Apps API: can be imported from
+IM API database directly or a CSV list of `uniqueId,mac` pairs.
 
 ## Setting up
 Requirements:
