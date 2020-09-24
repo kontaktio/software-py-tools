@@ -10,7 +10,13 @@ from dotenv import load_dotenv
 class Config(Enum):
     APPS_API_URL = auto()
     APPS_API_KEY = auto()
+    APPS_DB_HOST = auto()
+    APPS_DB_PORT = auto()
+    APPS_DB_DATABASE = auto()
+    APPS_DB_USER = auto()
+    APPS_DB_PASSWORD = auto()
     IM_DB_HOST = auto()
+    IM_DB_PORT = auto()
     IM_DB_DATABASE = auto()
     IM_DB_USER = auto()
     IM_DB_PASSWORD = auto()

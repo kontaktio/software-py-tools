@@ -12,6 +12,7 @@ from util.common import get_config, post, Config
 def retrieve_entities_from_db(order_id):
     conn = psycopg2.connect(
         host=get_config(Config.IM_DB_HOST),
+        port=get_config(Config.IM_DB_PORT),
         database=get_config(Config.IM_DB_DATABASE),
         user=get_config(Config.IM_DB_USER),
         password=get_config(Config.IM_DB_PASSWORD),
@@ -29,6 +30,7 @@ def retrieve_entities_from_db(order_id):
         (order_id,),
     )
     records = cursor.fetchall()
+    cursor.close()
     return records
 
 
