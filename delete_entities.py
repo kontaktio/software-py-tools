@@ -1,7 +1,12 @@
 import logging
 import sys
 
-from util.api import get_entity_types, delete_entity, get_entities, delete_entity_type
+from util.apps_api import (
+    get_entity_types,
+    delete_entity,
+    get_entities,
+    delete_entity_type,
+)
 
 
 def delete_entities_parallel():

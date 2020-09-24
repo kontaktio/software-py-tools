@@ -3,6 +3,10 @@ Useful code snippets to get rid of toil with automation.
 * `delete_entities.py` - wipe entities and entity types from any Apps API account.
 * `import_entities.py` - imports beacon entities into Apps API: can be imported from
 IM API database directly or a CSV list of `uniqueId,mac` pairs.
+* `apps_api_update_password.py` and `im_api_update_password.py` - set any new password
+for any Apps API or IM API user. You only need to know user's email for that.
+* `update_datahost_pl.py` - send configuration updates to multiple Portal Lights,
+ e.g. all PLs from some account.
 
 ## Setting up
 Requirements:

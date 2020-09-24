@@ -5,8 +5,8 @@ from typing import List
 
 import psycopg2 as psycopg2
 
-from util.api import create_entity_type
-from util.common import get_config, post, Config
+from util.apps_api import create_entity_type, create_entity
+from util.common import get_config, Config
 
 
 def retrieve_entities_from_db(order_id):
@@ -78,9 +78,7 @@ def import_entities(entities: List, entity_type=None):
             "endDate": None,
             "status": "Active",
         }
-        post(
-            f"{get_config(Config.APPS_API_URL)}/v2/entities", json=req_body,
-        )
+        create_entity(req_body)
         logging.info(f"{i+1}/{len(entities)} Entity {unique_id} {mac}")
 
 

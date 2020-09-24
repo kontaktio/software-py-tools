@@ -6,10 +6,14 @@ from pathlib import Path
 import requests
 from dotenv import load_dotenv
 
+API_KEY = "Api-Key"
+
 
 class Config(Enum):
     APPS_API_URL = auto()
     APPS_API_KEY = auto()
+    IM_API_URL = auto()
+
     APPS_DB_HOST = auto()
     APPS_DB_PORT = auto()
     APPS_DB_DATABASE = auto()
@@ -28,28 +32,25 @@ def get_config(key: Config):
     return os.environ[key.name]
 
 
-HEADERS = {
-    "Api-Key": get_config(Config.APPS_API_KEY),
-    "Content-Type": "application/json",
-    "Accept": "application/json",
-}
-
-
-def post(url, json):
+def post(url, headers, json=None, params=None):
     try:
-        response = requests.post(url, json=json, headers=HEADERS)
+        if params:
+            response = requests.post(url, headers=headers, params=params)
+        else:
+            response = requests.post(url, json=json, headers=headers)
         response.raise_for_status()
         return response
     except requests.RequestException:
         logging.error(
-            f"POST {url}\n{json}\nRESP {response.status_code} {response.content}"
+            f"POST {url} params {params}\n{headers}\n{json}"
+            f"\nRESP {response.status_code} {response.content}"
         )
         raise
 
 
-def put(url, json):
+def put(url, headers, json):
     try:
-        response = requests.put(url, json=json, headers=HEADERS)
+        response = requests.put(url, json=json, headers=headers)
         response.raise_for_status()
         return response
     except requests.RequestException:
@@ -59,9 +60,9 @@ def put(url, json):
         raise
 
 
-def get(url):
+def get(url, headers):
     try:
-        response = requests.get(url, headers=HEADERS)
+        response = requests.get(url, headers=headers)
         response.raise_for_status()
         return response
     except requests.RequestException:
@@ -69,9 +70,9 @@ def get(url):
         raise
 
 
-def delete(url):
+def delete(url, headers):
     try:
-        response = requests.delete(url, headers=HEADERS)
+        response = requests.delete(url, headers=headers)
         response.raise_for_status()
         return response
     except requests.RequestException:
