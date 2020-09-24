@@ -58,6 +58,7 @@ def update_datahost(pls, datahost: str):
 if __name__ == "__main__":
     logging.basicConfig(stream=sys.stdout, level=logging.INFO)
 
+    # See data/incorrect_datahosts.sql
     accounts = ["a.penpeski+ebg@kontakt.io", "p.gera+barclays@kontakt.io"]
     for account in accounts:
         pls = get_all(account)
