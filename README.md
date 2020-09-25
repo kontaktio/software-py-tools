@@ -13,12 +13,12 @@ Requirements:
 * Python 3.6+
 * [Pipenv](https://pipenv-fork.readthedocs.io/en/latest/)
 
-### Console based setup
+#### Console based setup
 ```sh
 pipenv install
 ```
 
-### PyCharm based setup
+#### PyCharm based setup
 Pycharm natively supports Pipenv, so the setup procedure
 is more intuitive - pick "Pipenv environment" in "Add interpeter"
 dialog and assign the new interpreter to this project.
@@ -40,3 +40,11 @@ pipenv run python anything_you_want.py
 
 Command line arguments are not implemented intentionally for greater
 flexibility.
+
+
+## Contributing
+* `util` package contains solution-agnostic code, e.g.
+generic API calls, database connection, anything generic enough that you can
+use in any solution.
+* Top-level directory contains solution-specific scripts,
+each with a `__main__` method to allow running it as a standalone script.
