@@ -36,6 +36,7 @@ def get_all(email: str):
 
 
 def update_datahost(pls, datahost: str):
+    total_updated = 0
     for i, pl in enumerate(pls):
         if pl["data_host"] != datahost:
             create_config(
@@ -49,21 +50,27 @@ def update_datahost(pls, datahost: str):
             logging.info(
                 f"{i+1}/{len(pls)} dataHost set to {datahost} for {pl['unique_id']}"
             )
+            total_updated += 1
         else:
             logging.info(
                 f"{i+1}/{len(pls)} dataHost already = {datahost} for {pl['unique_id']}"
             )
+    return total_updated
 
 
 if __name__ == "__main__":
     logging.basicConfig(stream=sys.stdout, level=logging.INFO)
 
     # See data/incorrect_datahosts.sql
-    accounts = ["a.penpeski+ebg@kontakt.io", "p.gera+barclays@kontakt.io"]
+    accounts = ["m.zieba+10plofficetests@kontakt.io"]
     for account in accounts:
         pls = get_all(account)
         if pls:
             logging.info(f"Found {len(pls)} PLs in {account} account")
-            update_datahost(pls, "https://event-processor.prod.kontakt.io")
+            updated = update_datahost(pls, "https://event-processor.prod.kontakt.io")
+            print(
+                f"Account {account}: {updated} updated, "
+                f"{len(pls)-updated} were already correct"
+            )
         else:
             logging.info(f"No PLs found in {account} account")
