@@ -36,8 +36,8 @@ def retrieve_entities_from_db(order_id):
 
 def retrieve_entities_from_csv(file_path: str):
     entities = list()
-    with open(file_path) as csvfile:
-        csv_reader = csv.reader(csvfile)
+    with open(file_path) as csv_file:
+        csv_reader = csv.reader(csv_file)
         for row in csv_reader:
             entities.append({row[0], row[1]})
     return entities
@@ -86,10 +86,10 @@ if __name__ == "__main__":
     logging.basicConfig(stream=sys.stdout, level=logging.INFO)
 
     # Pick one: load CSV list of uniqueId,mac OR
-    # entities = retrieve_entities_from_csv("data/sample_beacon_list.csv")
+    # entities = retrieve_entities_from_csv("data/import_entities/sample_beacon_list.csv")
 
     # ...load all beacons from order_id in IM API
-    entities = retrieve_entities_from_db("xrXHmv")
+    entities = retrieve_entities_from_db("GxDj85")
 
     if entities:
         logging.info(f"Going to import {len(entities)} entities")
@@ -101,3 +101,5 @@ if __name__ == "__main__":
 
         # ...create entities with new entity type
         import_entities(entities)
+    else:
+        logging.error(f"No entities found")

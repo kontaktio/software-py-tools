@@ -7,6 +7,8 @@ IM API database directly or a CSV list of `uniqueId,mac` pairs.
 for any Apps API or IM API user. You only need to know user's email for that.
 * `update_datahost_pl.py` - send configuration updates to multiple Portal Lights,
  e.g. all PLs from some account.
+ * `generate_ofm.py` - generate a CSV file with 'uniqueId,random mac' pairs for OFM
+ based on .zip or device_config.json file.
 
 ## Setting up
 Requirements:

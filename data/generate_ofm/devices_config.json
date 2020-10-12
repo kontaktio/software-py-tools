@@ -1,0 +1,95 @@
+[ {
+  "deviceConfig" : {
+    "name" : "Kontakt.io",
+    "packets" : [ "IBEACON", "KONTAKT" ],
+    "buttonFeatures" : [ ],
+    "interval" : 1000.0,
+    "kontaktAdvIntervalMs" : 1000.0,
+    "telemetryInterval" : 500.0,
+    "ttFrameInterval" : 3000.0,
+    "locationFrameInterval" : 350.0,
+    "locationFrameChannel" : 0,
+    "uniqueId" : "10in003",
+    "txPower" : 3,
+    "password" : "vkVJbc062Iequi2W",
+    "masterPassword" : "QqK7nJ",
+    "firmware" : "2.2.0",
+    "mac" : "CF:F2:E4:76:58:F1"
+  },
+  "powerSavingConfig" : {
+    "powerSaving" : [ ],
+    "moveSuspendTimeout" : 60,
+    "powerSavingLightThreshold" : 50,
+    "powerSavingRtcConfig" : { },
+    "burstOnTime" : 15,
+    "burstOffTime" : 1
+  },
+  "ibeacon" : {
+    "proximity" : "f7826da6-4fa2-4e98-8024-bc5b71e0893e",
+    "major" : 10534,
+    "minor" : 56293
+  },
+  "eddystone" : {
+    "namespace" : "f7826da6bc5b71e0893e",
+    "instanceId" : "56766e715a7a",
+    "url" : "026b6e746b2e696f2f6564647973746f6e65",
+    "eidIdentityKey" : "34a22cb0417e48103c6b474bff76feb7",
+    "eidRotationPeriodExponent" : 15
+  },
+  "securityConfig" : {
+    "shuffleInterval" : 0,
+    "shuffleKeyLength" : 10,
+    "shufflePassword" : "abcdef",
+    "shufflePasswordLength" : 6,
+    "secureConfig" : true
+  },
+  "serialNumber" : 3,
+  "productName" : "Card Tag CT18-3"
+}, {
+  "deviceConfig" : {
+    "name" : "Kontakt.io",
+    "packets" : [ "IBEACON", "KONTAKT" ],
+    "buttonFeatures" : [ ],
+    "interval" : 1000.0,
+    "kontaktAdvIntervalMs" : 1000.0,
+    "telemetryInterval" : 500.0,
+    "ttFrameInterval" : 3000.0,
+    "locationFrameInterval" : 350.0,
+    "locationFrameChannel" : 0,
+    "uniqueId" : "10io004",
+    "txPower" : 3,
+    "password" : "iTrvMQlvcDWWqEcy",
+    "masterPassword" : "sDNgVT",
+    "firmware" : "2.2.0",
+    "mac" : "CC:1C:E6:75:36:F1"
+  },
+  "powerSavingConfig" : {
+    "powerSaving" : [ ],
+    "moveSuspendTimeout" : 60,
+    "powerSavingLightThreshold" : 50,
+    "powerSavingRtcConfig" : { },
+    "burstOnTime" : 15,
+    "burstOffTime" : 1
+  },
+  "ibeacon" : {
+    "proximity" : "f7826da6-4fa2-4e98-8024-bc5b71e0893e",
+    "major" : 10801,
+    "minor" : 34245
+  },
+  "eddystone" : {
+    "namespace" : "f7826da6bc5b71e0893e",
+    "instanceId" : "455a4871764c",
+    "url" : "026b6e746b2e696f2f6564647973746f6e65",
+    "eidIdentityKey" : "43cafbba841a1c2e7942cc293fefdb07",
+    "eidRotationPeriodExponent" : 15
+  },
+  "securityConfig" : {
+    "shuffleInterval" : 0,
+    "shuffleKeyLength" : 10,
+    "shufflePassword" : "abcdef",
+    "shufflePasswordLength" : 6,
+    "secureConfig" : true
+  },
+  "serialNumber" : 4,
+  "productName" : "Card Tag CT18-3"
+} ]

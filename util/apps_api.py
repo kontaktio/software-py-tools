@@ -11,7 +11,9 @@ HEADERS = {
 # Entities
 def create_entity(entity):
     post(
-        f"{get_config(Config.APPS_API_URL)}/v2/entities", json=entity, headers=HEADERS,
+        f"{get_config(Config.APPS_API_URL)}/v2/entities",
+        json=entity,
+        headers=HEADERS,
     )
 
 
