@@ -39,7 +39,7 @@ def generate_password_hash(password_plaintext: str, salt: str):
     ).hexdigest()
 
 
-def update_password_hash(email: str, password_hash: str):
+def update_password_hash(email: str, salt:str, password_hash: str):
     conn = psycopg2.connect(
         host=get_config(Config.APPS_DB_HOST),
         port=get_config(Config.APPS_DB_PORT),
@@ -51,10 +51,10 @@ def update_password_hash(email: str, password_hash: str):
     cursor.execute(
         """
         update user_table
-        set password = %s
+        set password = %s, password_hash = %s
         where email = %s
         """,
-        (password_hash, email),
+        (password_hash, f"{{{salt}}}{password_hash}", email),
     )
     records_updated = cursor.rowcount
     conn.commit()
@@ -69,10 +69,10 @@ def update_password_hash(email: str, password_hash: str):
 if __name__ == "__main__":
     logging.basicConfig(stream=sys.stdout, level=logging.INFO)
 
-    email = "a.penpeski+zulafly@kontakt.io"
-    new_password = "ZulaProdAcc1"
+    email = "a.penpeski+awexpo@kontakt.io"
+    new_password = "AWawExpo19"
 
     salt = get_salt(email)
     pw_hash = generate_password_hash(new_password, salt)
-    update_password_hash(email, pw_hash)
+    update_password_hash(email, salt, pw_hash)
     logging.info(f"New credentials:\nUser: {email}\nPassword: {new_password}")
