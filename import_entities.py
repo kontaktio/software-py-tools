@@ -1,7 +1,7 @@
 import csv
 import logging
 import sys
-from typing import List
+from typing import List, Tuple
 
 import psycopg2 as psycopg2
 
@@ -9,7 +9,8 @@ from util.apps_api import create_entity_type, create_entity
 from util.common import get_config, Config
 
 
-def retrieve_entities_from_db(order_id):
+def retrieve_entities_from_db(order_ids: Tuple):
+    logging.info(f"Connecting to {get_config(Config.IM_DB_HOST)}...")
     conn = psycopg2.connect(
         host=get_config(Config.IM_DB_HOST),
         port=get_config(Config.IM_DB_PORT),
@@ -17,6 +18,7 @@ def retrieve_entities_from_db(order_id):
         user=get_config(Config.IM_DB_USER),
         password=get_config(Config.IM_DB_PASSWORD),
     )
+    logging.info(f"Connected to {get_config(Config.IM_DB_HOST)}")
     cursor = conn.cursor()
     cursor.execute(
         """
@@ -25,11 +27,12 @@ def retrieve_entities_from_db(order_id):
             lower(b.mac)
         from device
         join beacon b on device.id = b.id
-        where device.order_id=%s
+        where device.order_id in %s
         """,
-        (order_id,),
+        (order_ids,),
     )
     records = cursor.fetchall()
+    logging.info(f"Found {len(records)} beacons in orders {order_ids}")
     cursor.close()
     return records
 
@@ -89,7 +92,7 @@ if __name__ == "__main__":
     # entities = retrieve_entities_from_csv("data/import_entities/sample_beacon_list.csv")
 
     # ...load all beacons from order_id in IM API
-    entities = retrieve_entities_from_db("GxDj85")
+    entities = retrieve_entities_from_db(("KNKT-py3", "KNKT-JrT"))
 
     if entities:
         logging.info(f"Going to import {len(entities)} entities")
