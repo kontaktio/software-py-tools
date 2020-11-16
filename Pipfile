@@ -10,6 +10,7 @@ black = "*"
 requests = "*"
 psycopg2 = "*"
 python-dotenv = "*"
+pre-commit = "*"
 
 [requires]
 python_version = "3.8"

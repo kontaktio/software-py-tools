@@ -39,7 +39,7 @@ def generate_password_hash(password_plaintext: str, salt: str):
     ).hexdigest()
 
 
-def update_password_hash(email: str, salt:str, password_hash: str):
+def update_password_hash(email: str, salt: str, password_hash: str):
     conn = psycopg2.connect(
         host=get_config(Config.APPS_DB_HOST),
         port=get_config(Config.APPS_DB_PORT),

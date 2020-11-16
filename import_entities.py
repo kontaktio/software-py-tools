@@ -9,7 +9,7 @@ from util.apps_api import create_entity_type, create_entity
 from util.common import get_config, Config
 
 
-def retrieve_entities_from_db(order_ids: Tuple):
+def retrieve_entities_from_db(*order_ids):
     logging.info(f"Connecting to {get_config(Config.IM_DB_HOST)}...")
     conn = psycopg2.connect(
         host=get_config(Config.IM_DB_HOST),
@@ -92,7 +92,7 @@ if __name__ == "__main__":
     # entities = retrieve_entities_from_csv("data/import_entities/sample_beacon_list.csv")
 
     # ...load all beacons from order_id in IM API
-    entities = retrieve_entities_from_db(("KNKT-py3", "KNKT-JrT"))
+    entities = retrieve_entities_from_db("n7zQXM", "123")
 
     if entities:
         logging.info(f"Going to import {len(entities)} entities")
