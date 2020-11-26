@@ -355,6 +355,4 @@ $RECYCLE.BIN/
 
 
 # CUSTOM ADDITIONS
-*.env
-!sample.env
 data/generate_ofm/*.csv

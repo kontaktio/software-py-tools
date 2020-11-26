@@ -5,12 +5,12 @@ verify_ssl = true
 
 [dev-packages]
 black = "*"
+pre-commit = "*"
 
 [packages]
 requests = "*"
 psycopg2 = "*"
 python-dotenv = "*"
-pre-commit = "*"
 
 [requires]
 python_version = "3.8"
