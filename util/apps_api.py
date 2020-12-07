@@ -69,7 +69,7 @@ def get_entity_type_by_id(entity_type_id: int):
 def get_entity_type_by_name(entity_type_name: str):
     entity_types = get_entity_types()
     requested_type = [t for t in entity_types if t["name"] == entity_type_name]
-    return requested_type if requested_type else None
+    return requested_type[0] if requested_type else None
 
 
 def delete_entity_type(entity_type):

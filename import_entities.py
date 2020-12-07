@@ -1,7 +1,7 @@
 import csv
 import logging
 import sys
-from typing import List, Tuple
+from typing import List
 
 import psycopg2 as psycopg2
 
@@ -82,7 +82,7 @@ def import_entities(entities: List, entity_type=None):
             "status": "Active",
         }
         create_entity(req_body)
-        logging.info(f"{i+1}/{len(entities)} Entity {unique_id} {mac}")
+        logging.info(f"{i+1}/{len(entities)} Beacon {unique_id} {mac}")
 
 
 if __name__ == "__main__":
@@ -92,7 +92,7 @@ if __name__ == "__main__":
     # entities = retrieve_entities_from_csv("data/import_entities/sample_beacon_list.csv")
 
     # ...load all beacons from order_id in IM API
-    entities = retrieve_entities_from_db("n7zQXM", "123")
+    entities = retrieve_entities_from_db("154870", "800538")
 
     if entities:
         logging.info(f"Going to import {len(entities)} entities")
