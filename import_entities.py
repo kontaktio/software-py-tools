@@ -50,7 +50,7 @@ def import_entities(entities: List, entity_type=None):
     if not entity_type:
         entity_type = create_entity_type(
             {
-                "name": "default",
+                "name": "default - created by software-py-tools",
                 "sensors": [{"name": "rssi", "role": "rssi"}],
                 "attributes": [
                     {
@@ -92,7 +92,7 @@ if __name__ == "__main__":
     # entities = retrieve_entities_from_csv("data/import_entities/sample_beacon_list.csv")
 
     # ...load all beacons from order_id in IM API
-    entities = retrieve_entities_from_db("154870", "800538")
+    entities = retrieve_entities_from_db("sLNfpV")
 
     if entities:
         logging.info(f"Going to import {len(entities)} entities")
