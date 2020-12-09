@@ -46,11 +46,15 @@ def retrieve_entities_from_csv(file_path: str):
     return entities
 
 
-def import_entities(entities: List, entity_type=None):
+def import_entities(
+    entities: List,
+    entity_type=None,
+    entity_type_name="default - created by software-py-tools",
+):
     if not entity_type:
         entity_type = create_entity_type(
             {
-                "name": "default - created by software-py-tools",
+                "name": entity_type_name,
                 "sensors": [{"name": "rssi", "role": "rssi"}],
                 "attributes": [
                     {
@@ -92,17 +96,18 @@ if __name__ == "__main__":
     # entities = retrieve_entities_from_csv("data/import_entities/sample_beacon_list.csv")
 
     # ...load all beacons from order_id in IM API
-    entities = retrieve_entities_from_db("sLNfpV")
+    entities = retrieve_entities_from_db("Kh4aHD", "8M4vtD", "884659", "182094")
 
     if entities:
         logging.info(f"Going to import {len(entities)} entities")
 
-        # Pick one: find entity type first OR
+        # Pick one: find entity type and append new entities to it....
         # entity_type = get_entity_type_by_id(123)
         # entity_type = get_entity_type_by_name("default")
         # import_entities(entities, entity_type)
 
-        # ...create entities with new entity type
+        # ... OR create entities with a brand new entity type
         import_entities(entities)
+        # import_entities(entities, entity_type_name="your custom type name")
     else:
         logging.error(f"No entities found")
