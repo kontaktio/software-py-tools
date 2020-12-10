@@ -13,7 +13,6 @@ for any Apps API or IM API user. You only need to know user's email for that.
 ## Setting up
 Requirements:
 * Python 3.6+
-* PostgreSQL installed in $PATH - psycopg2 needs postgres binaries to access databases.
 * [Pipenv](https://pipenv-fork.readthedocs.io/en/latest/)
 
 #### Console based setup

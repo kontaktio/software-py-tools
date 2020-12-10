@@ -9,11 +9,8 @@ pre-commit = "*"
 
 [packages]
 requests = "*"
-psycopg2 = "*"
 python-dotenv = "*"
-
-[requires]
-python_version = "python 3"
+psycopg2-binary = "*"
 
 [pipenv]
 allow_prereleases = true
