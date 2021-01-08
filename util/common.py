@@ -19,11 +19,18 @@ class Config(Enum):
     APPS_DB_DATABASE = auto()
     APPS_DB_USER = auto()
     APPS_DB_PASSWORD = auto()
+
     IM_DB_HOST = auto()
     IM_DB_PORT = auto()
     IM_DB_DATABASE = auto()
     IM_DB_USER = auto()
     IM_DB_PASSWORD = auto()
+
+    PANEL_DB_HOST = auto()
+    PANEL_DB_PORT = auto()
+    PANEL_DB_DATABASE = auto()
+    PANEL_DB_USER = auto()
+    PANEL_DB_PASSWORD = auto()
 
 
 def get_config(key: Config):

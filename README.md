@@ -9,6 +9,7 @@ for any Apps API or IM API user. You only need to know user's email for that.
  e.g. all PLs from some account.
  * `generate_ofm.py` - generate a CSV file with 'uniqueId,random mac' pairs for OFM
  based on .zip or device_config.json file.
+ * `panel_refresh_alert_tokens.py` - refresh alert API tokens in Panel API.
 
 ## Setting up
 Requirements:
