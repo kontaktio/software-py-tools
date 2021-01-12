@@ -11,6 +11,7 @@ pre-commit = "*"
 requests = "*"
 python-dotenv = "*"
 psycopg2-binary = "*"
+jwt = "*"
 
 [pipenv]
 allow_prereleases = true

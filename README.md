@@ -10,6 +10,7 @@ for any Apps API or IM API user. You only need to know user's email for that.
  * `generate_ofm.py` - generate a CSV file with 'uniqueId,random mac' pairs for OFM
  based on .zip or device_config.json file.
  * `panel_refresh_alert_tokens.py` - refresh alert API tokens in Panel API.
+ * `jwt_token.py` - generate JWT token with any claim set based on a local RSA256 private key.
 
 ## Setting up
 Requirements:

@@ -32,6 +32,8 @@ class Config(Enum):
     PANEL_DB_USER = auto()
     PANEL_DB_PASSWORD = auto()
 
+    PRIVATE_KEY = auto()
+
 
 def get_config(key: Config):
     if Config.APPS_API_KEY.name not in os.environ:
