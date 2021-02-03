@@ -66,6 +66,8 @@ def update_password_hash(email: str, password_hash: str):
         )
 
 
+# Required env. variables:
+# IM_DB_*
 if __name__ == "__main__":
     logging.basicConfig(stream=sys.stdout, level=logging.INFO)
 
