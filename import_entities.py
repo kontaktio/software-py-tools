@@ -5,7 +5,12 @@ from typing import List
 
 import psycopg2 as psycopg2
 
-from util.apps_api import create_entity_type, create_entity
+from util.apps_api import (
+    create_entity_type,
+    create_entity,
+    get_entity_type_by_id,
+    get_entity_type_by_name,
+)
 from util.common import get_config, Config
 
 
