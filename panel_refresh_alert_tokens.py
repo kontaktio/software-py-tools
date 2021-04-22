@@ -129,6 +129,10 @@ def update_tokens(tokens: list):
     cursor.close()
 
 
+# Required env. variables:
+# PANEL_DB_*
+# IM_DB_*
+# IM_API_URL
 if __name__ == "__main__":
     logging.basicConfig(stream=sys.stdout, level=logging.INFO)
 
