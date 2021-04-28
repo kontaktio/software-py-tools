@@ -66,11 +66,13 @@ def update_password_hash(email: str, salt: str, password_hash: str):
         )
 
 
+# Required env. variables:
+# APPS_DB_*
 if __name__ == "__main__":
     logging.basicConfig(stream=sys.stdout, level=logging.INFO)
 
-    email = "a.penpeski+awexpo@kontakt.io"
-    new_password = "AWawExpo19"
+    email = "email@wherever.we"
+    new_password = "123butseriouslyno"
 
     salt = get_salt(email)
     pw_hash = generate_password_hash(new_password, salt)
